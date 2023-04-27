@@ -1,10 +1,18 @@
 import Link from 'next/link';
 
 export function Layout(props) {
-  let pageItems = ['/home', '/about', '/contact'];
+  let pageItems = [
+    { path: '/', name: 'Home' },
+    { path: '/about', name: 'About' },
+    { path: '/contact', name: 'Contact' },
+  ];
 
   const sidebarElements = pageItems.map(function (item, index) {
-    return <Link href={item}>{item}</Link>;
+    return (
+      <Link key={item.name} href={item.path}>
+        {item.name}
+      </Link>
+    );
   });
 
   return (
